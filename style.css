@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: 0.5s;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(13, 13, 13, 1);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+
+#container{
+    display: flex;
+    padding: 100px;
+    align-items:center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.cards{
+    position: relative;
+    margin: 10px auto;
+    width: 25%;
+    height: 500px;
+    background: linear-gradient(0deg, rgba(13, 13, 13, 1), rgba(59, 59, 59, 1)  );
+    border-radius: 20px;
+}
+
+
+.glow::before, .glow::after{
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg, #e6fb04, #ff6600, #00ff66, #00ffff, #ff00ff, #dd0099, #6e0dd0, #ff3300, #099fff, #fa05ea, #03ecfc);
+    background-size: 600%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: glowing 60s linear infinite;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+@keyframes glowing{
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
+
+.glow:hover::after{
+    filter: blur(30px);
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shoe-image img{
+    width: 200px;
+}
+
+.glow:hover .shoe-image{
+    transform: scale(1.2);
+}
+
+.shoe-preferences{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.shoe-name{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+.shoe-size{
+    width: 100%;
+}
+
+.shoe-size div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding: 15px 0;
+}
+
+.size-text, .color-text{
+    font-size: 20px;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.size input{
+    display: none;
+}
+
+
+.size label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #fff;
+    color: #616161;
+    border-radius: 5px;
+}
+
+.size label:active{
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+/*Shoe size selector changes*/
+
+.size input:checked+label{
+    font-weight: 900;
+    color: #000;
+    outline: solid 4px #dd0099;
+    transition: 0.2s;
+}
+
+.color{
+    display: flex;
+    justify-content: center;
+}
+
+.color input{
+    display: none;
+}
+
+.circle{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+.color input:checked+label{
+    outline: solid 4px #fff;
+    transition: 0.2s;
+}
+
+.radio-red{
+    background-color: #ff3300;
+}
+
+.radio-blue{
+    background-color: #099fff;
+}
+
+.radio-green{
+    background-color: #10aa4e;
+}
+
+.buy input{
+    background-color: #fff;
+    padding: 10px 15px;
+    border: solid 4px #099fff;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buy input:active{
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+footer div i{
+    font-size: 24px;
+}
